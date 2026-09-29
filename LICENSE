@@ -1,0 +1,20 @@
+Documentation license
+=====================
+
+The documentation text in this repository (Markdown files, OpenAPI description,
+llms.txt) is licensed under the Creative Commons Attribution 4.0 International
+License (CC BY 4.0).
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+You are free to share and adapt the documentation, including commercially,
+provided you give appropriate credit and indicate if changes were made.
+
+Not covered
+-----------
+
+This license applies ONLY to the documentation in this repository. It does not
+grant any rights to the Curtly software, service, source code, name, logo or
+branding. Curtly is proprietary, closed-source software operated at
+https://curtly.dev. Use of the hosted service is governed by the Terms of
+Service at https://curtly.dev/terms.

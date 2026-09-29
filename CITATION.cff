@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you reference Curtly documentation, please cite it as below."
+title: "Curtly: LLM prompt compression API and token optimization proxy (documentation)"
+type: software
+url: "https://curtly.dev"
+repository-code: "https://github.com/MiddleSugar7000/curtly-llm-token-compression"
+abstract: >-
+  Public documentation and API reference for Curtly, a hosted LLM prompt
+  compression API and OpenAI-compatible proxy that reduces input and output
+  token usage. The service itself is closed source.
+keywords:
+  - llm
+  - prompt compression
+  - token optimization
+  - openai-compatible proxy
+  - rag
+authors:
+  - alias: "MiddleSugar7000"
+date-released: "2026-09-29"

@@ -1,0 +1,180 @@
+openapi: 3.1.0
+info:
+  title: Curtly API
+  version: "1.0"
+  summary: LLM prompt compression API and OpenAI-compatible token optimization proxy.
+  description: |
+    Curtly reduces LLM input and output tokens. Documentation only; the service is hosted
+    and closed source. See https://github.com/MiddleSugar7000/curtly-llm-token-compression.
+  contact:
+    name: Curtly
+    url: https://curtly.dev
+    email: support@curtly.dev
+servers:
+  - url: https://curtly.dev/api/v1
+security:
+  - bearerAuth: []
+paths:
+  /compress:
+    post:
+      operationId: compressPrompt
+      summary: Compress a prompt
+      description: Returns a compressed prompt with token statistics. Maximum 50,000 characters.
+      parameters:
+        - $ref: "#/components/parameters/CurtlyMode"
+        - $ref: "#/components/parameters/CompressInput"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompressRequest"
+      responses:
+        "200":
+          description: Compressed prompt and statistics
+          headers:
+            X-Curtly-Integrity:
+              schema: { type: string, enum: [passed, warning] }
+            X-Curtly-Saved-Tokens:
+              schema: { type: string }
+            X-Curtly-Latency-Ms:
+              schema: { type: string }
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompressResponse"
+        "400": { description: Missing or invalid prompt }
+        "401": { description: Missing, invalid, revoked or expired API key }
+        "403": { description: Key lacks compression scope }
+        "413": { description: Prompt exceeds 50,000 characters }
+        "429": { description: Rate limit or monthly quota exceeded }
+        "500": { description: Internal error }
+  /chat/completions:
+    post:
+      operationId: createChatCompletion
+      summary: OpenAI-compatible chat completion with compression
+      description: |
+        Compresses messages, forwards to the configured upstream provider and returns the
+        provider response. Supports streaming.
+      parameters:
+        - $ref: "#/components/parameters/CurtlyMode"
+        - $ref: "#/components/parameters/CompressInput"
+        - name: X-Curtly-Brevity
+          in: header
+          schema: { type: string, enum: [lite, full, ultra, "off"] }
+        - name: X-Curtly-Output-Efficiency
+          in: header
+          schema: { type: string, enum: ["false"] }
+        - name: X-Provider
+          in: header
+          schema: { type: string, enum: [openrouter, openai, anthropic, groq, custom] }
+        - name: X-Provider-Key
+          in: header
+          description: Upstream provider credential for this request.
+          schema: { type: string }
+        - name: X-Provider-Base-Url
+          in: header
+          description: Upstream base URL when X-Provider is custom.
+          schema: { type: string, format: uri }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [messages]
+              additionalProperties: true
+              properties:
+                model: { type: string }
+                stream: { type: boolean, default: false }
+                messages:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    required: [role, content]
+                    properties:
+                      role: { type: string }
+                      content: {}
+      responses:
+        "200":
+          description: Upstream provider response (JSON or text/event-stream)
+        "400": { description: Invalid JSON, missing messages or model, or provider not resolvable }
+        "401": { description: Invalid, expired or missing key }
+        "403": { description: Insufficient scope or suspended account }
+        "429": { description: Rate limit or monthly quota exceeded }
+        "5xx": { description: Upstream provider unreachable or failed }
+  /models:
+    get:
+      operationId: listModels
+      summary: List models (OpenAI-compatible)
+      responses:
+        "200":
+          description: Model list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object: { type: string, example: list }
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: { type: string }
+                        object: { type: string, example: model }
+                        created: { type: integer }
+                        owned_by: { type: string }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Curtly API key starting with ctly_live_. X-Curtly-Key is also accepted.
+  parameters:
+    CurtlyMode:
+      name: X-Curtly-Mode
+      in: header
+      schema: { type: string, enum: [fast, auto, aggressive, agent] }
+    CompressInput:
+      name: X-Curtly-Compress-Input
+      in: header
+      schema: { type: string, enum: ["true", "false"] }
+  schemas:
+    CompressRequest:
+      type: object
+      required: [prompt]
+      properties:
+        prompt: { type: string, maxLength: 50000 }
+        mode: { type: string, enum: [conservative, balanced, aggressive, agent], default: balanced }
+        model: { type: string }
+        tokenizer: { type: string }
+        protectCodeBlocks: { type: boolean, default: true }
+        protectVariables: { type: boolean, default: true }
+        protectJson: { type: boolean, default: true }
+        enableAiDistillation: { type: boolean, default: false }
+    CompressResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        compressed: { type: string }
+        cleanCompressed: { type: string }
+        brevityDirective: { type: string }
+        outputDirective: { type: string }
+        outputSavingsEstimate: { type: object, additionalProperties: true }
+        stats:
+          type: object
+          properties:
+            mode: { type: string }
+            originalTokens: { type: number }
+            finalTokens: { type: number }
+            savedTokens: { type: number }
+            savedPercent: { type: number }
+            tokenizerUsed: { type: string }
+            latencyMs: { type: number }
+            integrityPassed: { type: boolean }
+            aiCompression: { type: string, enum: [enabled, disabled] }
+            stageBreakdown: { type: object, additionalProperties: true }
+            protectedItems: { type: array, items: {} }
+            estimatedSavingsPer10kCalls: { type: object, additionalProperties: true }

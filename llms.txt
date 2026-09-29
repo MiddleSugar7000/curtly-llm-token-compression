@@ -1,0 +1,23 @@
+# Curtly
+
+> Curtly is a hosted LLM prompt compression API and OpenAI-compatible proxy that reduces input and output token usage. It protects code, JSON, SQL, URLs and template variables with a "Safe Vault" before compressing, and adds an Output Brevity Governor for shorter model answers. This repository is documentation only; the service is closed source.
+
+## Docs
+- [README](README.md): Overview, quickstart and FAQ
+- [How it works](docs/how-it-works.md): Pipeline architecture
+- [Safe Vault](docs/safe-vault.md): Syntax and entity protection
+- [Compression modes](docs/compression-modes.md): conservative, balanced, aggressive, agent; AI-assisted step; output brevity
+- [Compress API](docs/api-reference/compress.md): POST /api/v1/compress
+- [Chat completions proxy](docs/api-reference/chat-completions.md): POST /api/v1/chat/completions
+- [Models](docs/api-reference/models.md): GET /api/v1/models
+- [Authentication](docs/api-reference/authentication.md): API keys, scopes, provider keys
+- [Errors and limits](docs/api-reference/errors-and-limits.md): Rate limits and quotas
+- [Integrations](docs/integrations.md): Python, Node.js, LangChain, cURL
+- [Benchmarks](docs/benchmarks.md): Results and limitations
+- [Models and tokenizers](docs/models-and-tokenizers.md)
+- [Security and privacy](docs/security-and-privacy.md)
+- [FAQ](docs/faq.md)
+- [OpenAPI spec](openapi.yaml)
+
+## Links
+- Website: https://curtly.dev
