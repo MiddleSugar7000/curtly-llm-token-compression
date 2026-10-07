@@ -162,3 +162,4 @@ Documentation in this repository is licensed under [CC BY 4.0](LICENSE). The Cur
 **Keywords:** LLM prompt compression, token optimization, reduce OpenAI API cost, reduce Claude API cost, prompt compression API, context compression, RAG context compression, LLM gateway, OpenAI-compatible proxy, token counter, output token reduction, AI agent context pruning.
 
 <!-- update: v1 -->
+<!-- update: v2 -->
