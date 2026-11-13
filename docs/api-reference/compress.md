@@ -33,6 +33,7 @@ Content-Type: application/json
 
 ## Response `200`
 
+<!-- Telemetry payload specification: original vs final token counts, savings percentages, and integrity check status -->
 ```json
 {
   "success": true,
