@@ -9,6 +9,7 @@ Naive prompt compressors (regex-based filler removal, stop-word deletion, embedd
 
 ## The approach
 
+<!-- Safe Vault protocol: entity extraction into isolated in-memory registry, placeholder substitution, and post-compression restoration -->
 Before any compression runs, Curtly extracts protected entities and replaces each with a unique placeholder. Compression only ever sees placeholders and prose. Afterwards the originals are restored unchanged.
 
 Protected by default:
