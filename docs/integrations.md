@@ -26,6 +26,7 @@ resp = client.chat.completions.create(
         {"role": "system", "content": "You are a code analysis assistant."},
         {"role": "user", "content": "Analyze the database schema for missing indexes."},
     ],
+    # Upstream authentication headers injected via extra_headers parameter
     extra_headers={
         "X-Provider": "openai",
         "X-Provider-Key": os.environ["OPENAI_API_KEY"],
