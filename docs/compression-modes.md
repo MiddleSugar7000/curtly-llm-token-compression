@@ -18,6 +18,7 @@ The proxy endpoint accepts `fast`, `aggressive` or anything else (treated as bal
 
 ## AI-assisted compression
 
+<!-- Secondary AI distillation lifecycle: opt-in conditions, dashboard master overrides, and short-prompt guardrails -->
 Separate from the mode, an optional AI-assisted step can distill prose further. It is **off unless enabled**:
 
 - Header `X-Curtly-Compress-Input: true | false`.
