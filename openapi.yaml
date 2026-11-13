@@ -51,6 +51,7 @@ paths:
         "413": { description: Prompt exceeds 50,000 characters }
         "429": { description: Rate limit or monthly quota exceeded }
         "500": { description: Internal error }
+  # OpenAI-compatible completions proxy route with transparent message compression and SSE streaming
   /chat/completions:
     post:
       operationId: createChatCompletion
