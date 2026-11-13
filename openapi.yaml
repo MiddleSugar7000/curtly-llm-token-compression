@@ -10,6 +10,7 @@ info:
     name: Curtly
     url: https://curtly.dev
     email: support@curtly.dev
+# Base gateway endpoint specification and global authorization requirement
 servers:
   - url: https://curtly.dev/api/v1
 security:
