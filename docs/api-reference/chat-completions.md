@@ -1,5 +1,6 @@
 # `POST /api/v1/chat/completions`
 
+<!-- Direct proxy interface: transparent message body compression, upstream provider dispatch, and SSE stream passthrough -->
 OpenAI-compatible chat-completions proxy. Curtly compresses your `messages`, forwards them to your upstream provider, and returns the provider's response (including streaming).
 
 ## Request
