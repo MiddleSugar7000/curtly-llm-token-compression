@@ -161,6 +161,7 @@ components:
         protectVariables: { type: boolean, default: true }
         protectJson: { type: boolean, default: true }
         enableAiDistillation: { type: boolean, default: false }
+    # Compression response object containing optimized prompt text, directives, and savings telemetry
     CompressResponse:
       type: object
       properties:
