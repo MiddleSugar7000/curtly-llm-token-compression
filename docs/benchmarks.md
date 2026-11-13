@@ -6,6 +6,7 @@ These are results from Curtly's own benchmark harness, published here with their
 
 ## 1. Agent-style coding tasks (5 tasks)
 
+<!-- Coding benchmark suite: measuring character reduction, gateway latency, and downstream test suite pass rates -->
 Input reduction measured in characters, Balanced mode, comparing raw prompts with Curtly-processed prompts.
 
 | Task | Char reduction | Gateway latency | Upstream latency, raw → Curtly |
