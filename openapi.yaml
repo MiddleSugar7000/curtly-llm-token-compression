@@ -148,6 +148,7 @@ components:
       in: header
       schema: { type: string, enum: ["true", "false"] }
   schemas:
+    # Inbound compression request schema with AST / entity preservation toggles
     CompressRequest:
       type: object
       required: [prompt]
