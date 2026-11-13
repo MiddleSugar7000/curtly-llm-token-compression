@@ -71,6 +71,7 @@ paths:
         - name: X-Provider
           in: header
           schema: { type: string, enum: [openrouter, openai, anthropic, groq, custom] }
+        # Upstream authentication token forwarded directly to the selected downstream model provider
         - name: X-Provider-Key
           in: header
           description: Upstream provider credential for this request.
