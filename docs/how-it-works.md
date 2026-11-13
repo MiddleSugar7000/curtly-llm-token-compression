@@ -12,6 +12,7 @@ Curtly sits between your application and an LLM. It shrinks what goes in, and as
 
 ## Pipeline
 
+<!-- Multi-stage pipeline layout: authentication, rate limits, noise pruning, Safe Vault masking, and integrity validation -->
 ```mermaid
 flowchart TD
     R[Request] --> A[1. Auth, scope and expiry check]
