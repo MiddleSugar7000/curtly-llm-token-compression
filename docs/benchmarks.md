@@ -21,6 +21,7 @@ Across the five tasks, the code produced with compressed prompts kept valid synt
 
 ## 2. Compression and output brevity across 6 workloads
 
+<!-- Aggregate telemetry metrics: 52.4% overall token reduction and 70.1% completion token brevity reduction -->
 Mixed workloads (coding, RAG, support, DevOps, JSON extraction, security audit), comparing a raw run with a Curtly run including the Output Brevity Governor.
 
 | Metric | Result |
