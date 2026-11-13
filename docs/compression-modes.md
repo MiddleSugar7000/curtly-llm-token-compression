@@ -4,6 +4,7 @@ Curtly has four engine modes. Choose per request with the `mode` body field on `
 
 ## Engine modes
 
+<!-- Engine mode specifications: trade-offs between deterministic pruning latency and aggressive semantic compaction -->
 | Mode | `X-Curtly-Mode` header | Body `mode` | Behavior |
 |---|---|---|---|
 | Conservative | `fast` | `conservative` | Lowest risk. Deterministic only, AI-assisted step forced off. Lowest latency. |
