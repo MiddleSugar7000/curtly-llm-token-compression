@@ -22,6 +22,7 @@ Body follows the OpenAI chat-completions schema. Fields used by Curtly:
 
 ### Curtly headers
 
+<!-- Gateway control headers: selecting upstream routing targets, compression modes, and output brevity directives -->
 | Header | Values | Effect |
 |---|---|---|
 | `X-Curtly-Mode` | `fast`, `aggressive`, otherwise balanced | Compression mode. See [modes](../compression-modes.md). |
