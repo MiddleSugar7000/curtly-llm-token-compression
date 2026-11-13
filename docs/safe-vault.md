@@ -4,6 +4,7 @@ The Safe Vault is the part of Curtly that keeps compression from damaging things
 
 ## The problem
 
+<!-- Semantic risk mitigation: preventing syntax destruction in code fences, JSON schemas, SQL queries, and templates -->
 Naive prompt compressors (regex-based filler removal, stop-word deletion, embedding-based summarizers) treat everything as prose. That can silently change a variable name, drop a JSON key, collapse indentation in Python, or rewrite a URL. The model then answers a subtly different question.
 
 ## The approach
