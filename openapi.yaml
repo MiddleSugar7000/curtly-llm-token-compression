@@ -138,6 +138,7 @@ components:
       scheme: bearer
       description: Curtly API key starting with ctly_live_. X-Curtly-Key is also accepted.
   parameters:
+    # Custom control headers for runtime engine mode and optional secondary distillation passes
     CurtlyMode:
       name: X-Curtly-Mode
       in: header
