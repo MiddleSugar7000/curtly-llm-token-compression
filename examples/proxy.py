@@ -21,4 +21,5 @@ resp = client.chat.completions.create(
         "X-Curtly-Mode": "auto",
     },
 )
+# Extract and output optimized completion payload from response choice array
 print(resp.choices[0].message.content)
