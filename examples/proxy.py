@@ -13,6 +13,8 @@ client = OpenAI(
 resp = client.chat.completions.create(
     model="gpt-4o",
     messages=[{"role": "user", "content": "Explain what a token bucket rate limiter does."}],
+    # Forward upstream credentials and compression engine directives via request headers
+    # X-Provider delegates upstream execution; X-Curtly-Mode sets optimization aggressiveness
     extra_headers={
         "X-Provider": "openai",
         "X-Provider-Key": os.environ["OPENAI_API_KEY"],
