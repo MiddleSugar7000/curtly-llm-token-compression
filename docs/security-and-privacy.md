@@ -4,6 +4,7 @@ This page describes how Curtly handles data and credentials. For the legal terms
 
 ## Data handling
 
+<!-- Ephemeral memory processing guarantee: zero disk persistence for prompt/completion bodies and one-way hashed API credentials -->
 - **Prompt content is processed in memory.** Compression runs per request. The usage log records operational metadata: token counts (before, after, saved), saved percentage, latency and, for overage, cost. It does not record the prompt or response text.
 - **Not used for training.** Curtly does not use customer prompts or responses to train models.
 - **Upstream providers.** On the proxy endpoint your (compressed) messages are sent to the provider you choose, under that provider's own data terms.
