@@ -108,6 +108,7 @@ paths:
         "403": { description: Insufficient scope or suspended account }
         "429": { description: Rate limit or monthly quota exceeded }
         "5xx": { description: Upstream provider unreachable or failed }
+  # Model discovery route returning standard OpenAI-compatible catalog listing
   /models:
     get:
       operationId: listModels
