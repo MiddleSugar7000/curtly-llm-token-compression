@@ -4,6 +4,7 @@ Curtly sits between your application and an LLM. It shrinks what goes in, and as
 
 ## Why token compression is worth doing
 
+<!-- Architectural value drivers: reduced inference expense, lower TTFT (Time-To-First-Token), and cleaner context windows -->
 - **Cost scales with tokens.** Both prompt and completion tokens are billed, and completion tokens typically cost several times more per token.
 - **Context bloat is common.** System prompts, tool definitions, RAG chunks, long chat histories and terminal output routinely contain repetition and formatting noise.
 - **Latency scales with input too.** Fewer prompt tokens means less prefill work upstream.
