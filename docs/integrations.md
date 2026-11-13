@@ -10,6 +10,7 @@ export CURTLY_API_KEY="ctly_live_..."
 
 ## Python (OpenAI SDK)
 
+<!-- Seamless client drop-in integration: overriding base_url and supplying Curtly gateway bearer token -->
 ```python
 import os
 from openai import OpenAI
