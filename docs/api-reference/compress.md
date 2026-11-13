@@ -1,5 +1,6 @@
 # `POST /api/v1/compress`
 
+<!-- Standalone compression API: synchronous processing of raw text payloads with comprehensive token savings metadata -->
 Compresses a prompt and returns the result with token statistics. You then send the compressed text to your LLM yourself.
 
 ## Request
