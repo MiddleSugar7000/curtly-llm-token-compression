@@ -5,6 +5,7 @@ from openai import OpenAI
 
 # Initialize standard OpenAI client instance routed through the Curtly optimization gateway
 # Uses CURTLY_API_KEY for gateway authentication while preserving native SDK semantics
+# Timeout configuration: standard 60-second read deadline for upstream LLM response streaming
 client = OpenAI(
     base_url="https://curtly.dev/api/v1",
     api_key=os.environ["CURTLY_API_KEY"],
