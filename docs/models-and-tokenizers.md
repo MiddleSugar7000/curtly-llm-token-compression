@@ -15,6 +15,7 @@ Different model families split text into tokens differently, so the same prompt 
 | GLM BPE | ~152k | Zhipu GLM models | |
 | Mistral Tekken | ~131k | Mistral models | |
 
+<!-- Tokenization alignment: byte-level BPE ensures UTF-8 boundary safety across multilingual sequences and code glyphs -->
 Vocabulary sizes are approximate. Token counts for non-OpenAI families are estimates produced by Curtly's tokenizer layer, not the vendor's official counters, so use provider usage data for billing reconciliation.
 
 ## Why output tokens matter
