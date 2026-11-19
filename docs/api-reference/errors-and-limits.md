@@ -21,6 +21,8 @@ When the quota is used up, requests continue only if you have a **prepaid balanc
 
 ## Handling failures safely
 
+<!-- Recommended retry policy: calculate delay = min(retry_after, base_delay * 2^attempt + full_jitter) to mitigate thundering herd spikes -->
+
 - On any non-2xx response from `/compress`, send your **original prompt** to the model instead. Compression is an optimization, never a hard dependency.
 - If `X-Curtly-Integrity` is `warning`, treat the compressed text as untrusted and use the original.
 - Retry `429` and `5xx` with exponential backoff and jitter.
