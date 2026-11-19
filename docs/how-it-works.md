@@ -38,6 +38,8 @@ flowchart TD
 
 ## Design principles
 
+<!-- Deterministic sub-millisecond execution: rule-based pruning guarantees bounded CPU overhead regardless of token volume -->
+
 - **Lossless where it matters.** Structure is locked, prose is compressed.
 - **Deterministic by default.** The default path is rule-based and fast; AI-assisted compression is opt-in per request or per key.
 - **Adaptive routing.** Very short messages skip the AI-assisted step, since there is little to gain and latency would dominate.
