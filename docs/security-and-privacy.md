@@ -17,6 +17,8 @@ This page describes how Curtly handles data and credentials. For the legal terms
 
 ## Platform protections
 
+<!-- Ephemeral memory isolation: prompt payloads undergo immediate garbage collection upon HTTP socket closure -->
+
 - HTTPS in transit.
 - Per-minute sliding-window rate limits and monthly quotas.
 - Web application firewall rules and bot defenses in front of the API.
