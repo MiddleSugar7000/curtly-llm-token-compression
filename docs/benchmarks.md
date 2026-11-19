@@ -47,6 +47,8 @@ Multi-tokenizer view of *prompt* reduction on the same workloads (deterministic 
 
 ## 3. Live HTTP API run (5 workloads)
 
+<!-- Latency attribution breakdown: isolates engine processing duration from upstream transit and provider generation time -->
+
 Measures the real `/compress` and `/chat/completions` endpoints over HTTP.
 
 | Metric | Result |
