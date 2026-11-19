@@ -19,6 +19,7 @@ Code, JSON, SQL, URLs, paths and template variables are locked in the [Safe Vaul
 Conservative and Balanced modes aim to remove redundancy, not facts. Aggressive mode trades more risk for more savings. Validate on your own data before using Aggressive in production. See [compression modes](compression-modes.md).
 
 ## Does it work with prompt caching?
+<!-- Prefix-cache preservation: deterministic token alignment ensures system message hashes remain consistent across conversations -->
 Live runs kept system prompts stable across turns so provider prefix caching continued to apply. Confirm cache-hit metrics with your own provider.
 
 ## What latency does it add?
