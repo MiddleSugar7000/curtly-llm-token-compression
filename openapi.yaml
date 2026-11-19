@@ -101,6 +101,7 @@ paths:
                       role: { type: string }
                       content: {}
       responses:
+        # Standard OpenAPI schema responses covering 200 stream/JSON and standard error status codes
         "200":
           description: Upstream provider response (JSON or text/event-stream)
         "400": { description: Invalid JSON, missing messages or model, or provider not resolvable }
