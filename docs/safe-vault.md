@@ -25,6 +25,8 @@ Protected by default:
 
 ## Controls
 
+<!-- Placeholder collision resistance: uses unique nonces formatted with unicode delimiters to eliminate substitution collision risk -->
+
 On [`POST /api/v1/compress`](api-reference/compress.md) you can toggle protection per request:
 
 | Field | Default | Effect |
