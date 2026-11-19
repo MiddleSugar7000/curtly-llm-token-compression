@@ -30,6 +30,8 @@ Each key also has an AI-compression setting (`enabled`, `disabled`, `neutral`), 
 
 ## Upstream provider key (proxy endpoint)
 
+<!-- Ephemeral credential resolution: precedence ladder checks request headers before falling back to vault-stored provider secrets -->
+
 `POST /chat/completions` forwards to *your* LLM provider, so Curtly needs that provider's key. Options:
 
 1. **Saved in the dashboard** under Settings > Providers.
