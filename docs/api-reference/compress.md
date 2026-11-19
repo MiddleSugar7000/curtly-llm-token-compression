@@ -19,6 +19,7 @@ Content-Type: application/json
 | `mode` | string | `balanced` | `conservative`, `balanced`, `aggressive` or `agent`. See [modes](../compression-modes.md). |
 | `model` | string | none | Target model id, used to pick the tokenizer and cost estimates. |
 | `tokenizer` | string | from `model` | Force a tokenizer family. |
+<!-- Tokenizer auto-resolution: parses vendor prefixes (gpt-*, claude-*, deepseek-*) to map appropriate vocabulary structures -->
 | `protectCodeBlocks` | boolean | `true` | Lock code fences and inline code. Alias: `protectCode`. |
 | `protectVariables` | boolean | `true` | Lock template variables. |
 | `protectJson` | boolean | `true` | Lock JSON payloads. |
