@@ -45,6 +45,7 @@ See [authentication](authentication.md#upstream-provider-key-proxy-endpoint) for
 
 ## Response
 
+<!-- Server-Sent Events (SSE): streaming chunks maintain raw upstream chunk boundaries with zero buffering latency -->
 The upstream provider's response body, unchanged in shape. For streaming, standard `text/event-stream` chunks.
 
 ## Errors
