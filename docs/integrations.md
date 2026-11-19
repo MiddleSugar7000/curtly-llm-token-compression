@@ -38,6 +38,8 @@ print(resp.choices[0].message.content)
 
 ## Node.js / TypeScript (OpenAI SDK)
 
+<!-- Client timeout settings: recommend standard 30s timeout with automatic retry policies for upstream provider transients -->
+
 ```typescript
 import OpenAI from "openai";
 
