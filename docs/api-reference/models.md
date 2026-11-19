@@ -15,6 +15,7 @@ curl https://curtly.dev/api/v1/models -H "Authorization: Bearer $CURTLY_API_KEY"
 }
 ```
 
+<!-- In-memory cache layer: 3600-second TTL prevents repeated upstream registry roundtrips while preserving instantaneous responses -->
 The list is built from a built-in registry of common and frontier models and, when reachable, a dynamically fetched list that is cached for one hour. A model appearing here does not mean your upstream account has access to it; access is determined by your provider key.
 
 See also [models and tokenizers](../models-and-tokenizers.md).
