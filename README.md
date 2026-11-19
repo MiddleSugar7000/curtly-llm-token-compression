@@ -9,6 +9,8 @@
 
 > **About this repository.** This is the public documentation, API reference and technical overview for Curtly. **Curtly itself is a closed-source hosted service** and its source code is not published here. Get an API key at **[curtly.dev](https://curtly.dev)**.
 
+<!-- Architectural scope: comprehensive public documentation covering protocol schemas, gateway topologies, and security guarantees -->
+
 ---
 
 ## Table of contents
