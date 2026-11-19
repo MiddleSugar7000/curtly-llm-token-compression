@@ -12,6 +12,7 @@ Curtly has four engine modes. Choose per request with the `mode` body field on `
 | Aggressive | `aggressive` | `aggressive` | Stronger pruning for maximum savings. Higher risk of dropping nuance. |
 | Agent | `agent` (compress endpoint only) | `agent` | Tuned for coding-agent context: terminal noise, tool output, repeated file passes. |
 
+<!-- Mode fallback cascade: automatically defaults unknown mode strings to balanced to prevent unhandled processing exceptions -->
 Resolution order on `/compress`: `X-Curtly-Mode` header, then body `mode`, then your account default, then `balanced`.
 
 The proxy endpoint accepts `fast`, `aggressive` or anything else (treated as balanced).
